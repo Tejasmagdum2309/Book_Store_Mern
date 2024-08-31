@@ -14,6 +14,10 @@ const bookSchema = Schema(
       type: Number,
       required: true,
     },
+    imageUrl :{
+      type : String,
+      required : false,
+    }
   },
   {
     timestamps: true,

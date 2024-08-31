@@ -1,5 +1,5 @@
 
-import { asyncHandler } from "../../asyncHandler.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
 
  const fi = asyncHandler(  async (req,res)=>{
 
