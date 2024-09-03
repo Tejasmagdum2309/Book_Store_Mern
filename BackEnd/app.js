@@ -1,14 +1,27 @@
 import express from "express";
-import fisecRouter from './src/routes/first.route.js'
+// import fisecRouter from './src/routes/first.route.js'
 import bookRouter from './src/routes/book.router.js'
+import authRouter from './src/routes/auth.router.js'
 import cors from 'cors';
 
-const app = express();
-app.use(express.json());
-app.use(cors());
+import cookieParser from "cookie-parser"
 
-app.use("/",fisecRouter );
+
+const app = express();
+app.use(cors());
+app.use(cookieParser());
+
+
+app.use(express.json({limit: "16kb"}))
+app.use(express.urlencoded({extended: true, limit: "16kb"}))
+app.use(express.static("public"))
+app.use(cookieParser())
+
+
+// app.use("/",fisecRouter );
+app.use('/auth',authRouter)
 app.use("/books",bookRouter)
+
   
 
 export { app } 

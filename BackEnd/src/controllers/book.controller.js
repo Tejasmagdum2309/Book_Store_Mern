@@ -1,4 +1,4 @@
-import status from "statuses";
+// import status from "statuses";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { Book } from "../models/book.model.js";
 import { uploadOnCloudinary } from "../utils/cloudinary.js";
@@ -25,12 +25,15 @@ const createBook = asyncHandler(async (req, res) => {
   console.log(title, author, pubyear);
 
   const response = await  uploadOnCloudinary(req.file.path); 
-  // console.log(response);
+  console.log(response);
+  
+
 
   if(response){
        const newbook = await Book.create({
     title: title,
     author: author,
+    author_id: req.user._id,
     publishYear: pubyear,
     imageUrl : response.url
   });
@@ -38,7 +41,17 @@ const createBook = asyncHandler(async (req, res) => {
   }
 
   
-  return null;
+  return res.status(500).json(
+    new ApiError(500,"image not uploding plz try again....")
+  );
 });
 
-export { getBooks, createBook };
+const getUserCreatedBook = asyncHandler(async(req,res)=>{
+     const books = await Book.find({
+      user : "66d58431aab53af2bab41ddb"
+     })
+    
+     return res.status(200).json(books);
+});
+
+export { getBooks, createBook,getUserCreatedBook };

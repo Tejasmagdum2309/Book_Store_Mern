@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import { User } from "./user.model";
 
 const bookSchema = Schema(
   {
@@ -6,6 +7,11 @@ const bookSchema = Schema(
       type: String,
       requierd: true,
     },
+    auther_id:{
+      type : mongoose.Schema.Types.ObjectId,
+      ref : User
+    }
+    ,
     author: {
       type: String,
       required: true,
@@ -17,6 +23,11 @@ const bookSchema = Schema(
     imageUrl :{
       type : String,
       required : false,
+    },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
     }
   },
   {
