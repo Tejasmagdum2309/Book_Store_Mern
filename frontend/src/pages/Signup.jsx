@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import axios from 'axios';
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Handle signup logic here
     console.log({ name, email, password });
+    try {
+      const response = await axios.post('http://localhost:5000/auth/signup', {
+        name,
+        email,
+        password,
+      });
+      console.log('User registered:', response.data);
+      navigate("/login");
+    } catch (error) {
+      console.error('Error registering user:', error);
+    }
+
   };
 
   return (

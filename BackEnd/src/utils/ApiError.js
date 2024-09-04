@@ -4,12 +4,16 @@ class ApiError extends Error {
         message= "Something went wrong",
         errors = [],
         stack = ""
-    ){
-        super(message)
+    ){  
+
+        console.log("Constructor parameters:", { statusCode, message, errors, stack });
+        // super(message)
+        super();
         this.statusCode = statusCode
+        console.log(statusCode," ",this.statusCode);
         this.data = null
         this.message = message
-        this.success = false;
+        this.success = false
         this.errors = errors
 
         if (stack) {

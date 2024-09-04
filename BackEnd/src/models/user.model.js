@@ -25,6 +25,8 @@ const userSchema = new Schema({
         type : Boolean,
         default : false
     },
+    likedBooks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }]
+
 }, { timestamps: true });
 
 

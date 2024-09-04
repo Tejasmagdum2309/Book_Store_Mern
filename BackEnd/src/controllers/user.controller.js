@@ -42,50 +42,67 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 const loginUser = asyncHandler(async (req, res) => {
-
   const { email, password } = req.body;
-  
 
+  // Validate the input fields
   if ([email, password].some((field) => field?.trim() === "")) {
-    throw new ApiError(400, "all fields are importamnt bhaiyaa...");
+    return res.status(400).json({
+      success: false,
+      message: "All fields are important, please fill them out.",
+    });
   }
 
-  const user = await User.findOne({
-    email,
-  });
+  // Find the user in the database
+  const user = await User.findOne({ email });
+  console.log(user);
+
+  // Handle user not found
+  if (!user) {
+    return res.status(404).json({
+      success: false,
+      message: 'User not found.',
+    });
+  }
+
+  // Validate the password
   const passwordValidation = await user.isPasswordCorrect(password);
-
+  console.log("Password validation:", passwordValidation);
   if (!passwordValidation) {
-    ApiResponse(
-      401,
-      "Incoreect password bhaiya try again or delete this account we dont have areset password route..."
-    );
+    return res.status(401).json({
+      success: false,
+      message: "Incorrect password, please try again.",
+    });
   }
 
+  console.log("Proceeding with login...");
+
+  // Generate access token
   const accessToken = await user.generateToken();
 
+  // Mark user as logged in
   user.logedin = true;
   await user.save();
 
+  // Set cookie options
   const options = {
     httpOnly: true,
     secure: true,
   };
+
+  // Send response with access token
   res
     .status(200)
     .cookie("accessToken", accessToken, options)
-    .json(
-      new ApiResponse(
-        200,
-        {
-          user: user,
-          accessToken,
-        },
-        "User logged In Successfully"
-      )
-    );
-
+    .json({
+      success: true,
+      message: "User logged in successfully.",
+      data: {
+        user: user,
+        accessToken,
+      },
+    });
 });
+
 
 const logoutUser = asyncHandler(async (req, res) => {
   await User.findByIdAndUpdate(

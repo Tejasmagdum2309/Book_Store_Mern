@@ -7,9 +7,10 @@ import Signup from './pages/Signup';
 import LikedBooks from './pages/LikedBooks';
 import NavBar from './components/NavBar';
 
-const App = () => {
+import ProtectedRoute from './ProtectedRoute';
+
+function App() {
   return (
-    <>
     <Router>
       <NavBar />
       <Routes>
@@ -17,11 +18,10 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/liked-books" element={<LikedBooks />} />
+        <Route path="/liked-books" element={<ProtectedRoute element={<LikedBooks />} />} />
       </Routes>
-    </Router> 
-    </>
+    </Router>
   );
-};
+}
 
 export default App;

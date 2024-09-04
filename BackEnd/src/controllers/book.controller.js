@@ -26,7 +26,7 @@ const createBook = asyncHandler(async (req, res) => {
 
   const response = await  uploadOnCloudinary(req.file.path); 
   console.log(response);
-  
+  console.log("user info  : ", req.user)
 
 
   if(response){
@@ -37,21 +37,33 @@ const createBook = asyncHandler(async (req, res) => {
     publishYear: pubyear,
     imageUrl : response.url
   });
+  console.log(newbook);
   return res.status(201).send(newbook);
   }
 
   
-  return res.status(500).json(
-    new ApiError(500,"image not uploding plz try again....")
-  );
+   throw new ApiError(500,"image not uploding plz try again....")
+  
 });
 
 const getUserCreatedBook = asyncHandler(async(req,res)=>{
      const books = await Book.find({
-      user : "66d58431aab53af2bab41ddb"
+      author_id : req.user._id
      })
+     console.log(books);
     
      return res.status(200).json(books);
 });
 
-export { getBooks, createBook,getUserCreatedBook };
+
+const updateUserLikedBooks = asyncHandler(async(req,res)=>{
+  // u can work on this....
+});
+
+const getUserLikedBooks = asyncHandler(async(req,res)=>{
+  // u can work on this....
+});
+
+
+
+export { getBooks, createBook,getUserCreatedBook,updateUserLikedBooks,getUserLikedBooks };
