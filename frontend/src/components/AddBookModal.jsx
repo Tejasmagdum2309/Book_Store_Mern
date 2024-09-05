@@ -31,7 +31,7 @@ const AddBookModal = ({ isOpen, onClose, onBookAdded }) => {
     setError(null);
 
     try {
-      await axios.post('http://localhost:5000/books/book', formData, {
+      await axios.post('/books/book', formData, {
         headers: {
           'Content-Type': 'multipart/form-data', // Important: Set the correct content type
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,

@@ -19,8 +19,8 @@ app.use(cookieParser())
 
 
 // app.use("/",fisecRouter );
-app.use('/auth',authRouter)
-app.use("/books",bookRouter)
+app.use('/api/auth',authRouter)
+app.use("/api/books",bookRouter)
 
   
 

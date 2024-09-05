@@ -25,7 +25,7 @@ const LikedBooks = () => {
     setError(null);
 
     try {
-      const response = await axios.get("http://localhost:5000/books/mybooks", {
+      const response = await axios.get("/books/mybooks", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },

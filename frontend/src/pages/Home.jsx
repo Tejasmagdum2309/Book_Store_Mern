@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import BookItem from '../components/BookItems';
 
 const fetchBooks = async () => {
-  const response = await axios.get('http://localhost:5000/books/book');
+  const response = await axios.get('/books/book');
   return response.data.books; // Assuming response.data contains a books array
 };
 
