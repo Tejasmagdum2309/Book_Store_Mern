@@ -11,7 +11,7 @@
 
     "build:frontend": "cd frontend && npm run build",
     "start:backend": "cd backend && node -r dotenv/config index.js",
-    "start": "npm run build:frontend && npm run start:backend",
+    "start": "cd backend && node -r dotenv/config index.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
