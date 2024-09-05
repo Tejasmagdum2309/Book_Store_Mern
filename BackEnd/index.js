@@ -15,14 +15,13 @@ const port = process.env.PORT || 8000;
 
 const __dirname = path.resolve();
 
-if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "/frontend/dist")));
+// Serve the frontend build files
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-	});
-}
-
+// Catch-all route to serve the frontend
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../frontend/dist', 'index.html'));
+});
 
 connectDB()
 .then(() => {
