@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev:backend": "cd backend && nodemon -r dotenv/config index.js",
-    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd BackEnd  && nodemon -r dotenv/config index.js",
+    "dev:frontend": "cd BackEnd  && npm run dev",
 
 
     "build:frontend": "cd frontend && npm run build",
-    "start:backend": "cd backend && node -r dotenv/config index.js",
-    "start": "cd backend && node -r dotenv/config index.js",
+    "start:backend": "cd BackEnd  && node -r dotenv/config index.js",
+    "start": "cd BackEnd && node -r dotenv/config index.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
