@@ -4,11 +4,12 @@
   "main": "BackEnd/index.js",
   "type": "module",
 
-  "scripts": {
+ "scripts": {
   "dev": "cd BackEnd && nodemon -r dotenv/config index.js",
-  "start": "cd BackEnd && node index.js"
-},
-
+  "start": "cd BackEnd && node -r dotenv/config index.js",
+  "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
