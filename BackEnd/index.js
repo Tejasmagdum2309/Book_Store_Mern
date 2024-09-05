@@ -15,12 +15,13 @@ const port = process.env.PORT || 8000;
 
 const __dirname = path.resolve();
 
-// Serve the frontend build files
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+// Serve static files from the frontend dist directory
+const frontendPath = path.join(__dirname, '../FrontEnd/dist');
+app.use(express.static(frontendPath));
 
-// Catch-all route to serve the frontend
+// Serve index.html for any unknown paths (for client-side routing)
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../frontend/dist', 'index.html'));
+  res.sendFile(path.resolve(frontendPath, 'index.html'));
 });
 
 connectDB()
