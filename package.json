@@ -1,15 +1,15 @@
 {
   "name": "mern-bookstore-application",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "BackEnd/index.js",
   "type": "module",
+
   "scripts": {
-  "dev:backend": "cd BackEnd && npm run dev",
-  "start:backend": "cd BackEnd && npm run start",
-  "build": "npm install --prefix BackEnd && npm install --prefix frontend && npm run build --prefix frontend",
-  "start:frontend": "cd frontend && serve -s dist",
-  "start": "npm run start:backend & npm run start:frontend"
+  "dev": "cd BackEnd && nodemon -r dotenv/config index.js",
+  "start": "cd BackEnd && node -r dotenv/config index.js",
+  "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
 },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
