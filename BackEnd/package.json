@@ -118,9 +118,8 @@
     "whatwg-url": "^13.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon -r dotenv/config index.js",
-    "start": "node -r dotenv/config index.js"
+    "start": "node index.js"
 
   },
   "author": "",
