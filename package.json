@@ -6,8 +6,7 @@
 
  "scripts": {
   "dev": "cd BackEnd && nodemon -r dotenv/config index.js",
-  "start": "cd BackEnd && node -r dotenv/config index.js",
-  "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+  "build": "npm install --prefix ./frontend && npm run build --prefix ./frontend && npm install"
 }
 ,
   "keywords": [],
