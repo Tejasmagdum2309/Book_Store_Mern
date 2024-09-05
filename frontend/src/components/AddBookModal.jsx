@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../lib/axios.jsx';
 
 const AddBookModal = ({ isOpen, onClose, onBookAdded }) => {
   const [title, setTitle] = useState('');

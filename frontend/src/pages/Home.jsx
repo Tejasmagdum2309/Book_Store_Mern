@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import axios from '../lib/axios.jsx';
 import { useQuery } from '@tanstack/react-query';
 import BookItem from '../components/BookItems';
 

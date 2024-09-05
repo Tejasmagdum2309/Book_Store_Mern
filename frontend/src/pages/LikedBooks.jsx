@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from '../lib/axios.jsx';
 import BookItem from "../components/BookItems";
 import AddBookModal from "../components/AddBookModal";
 

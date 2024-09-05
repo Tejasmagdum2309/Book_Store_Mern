@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import LikedBooks from './pages/LikedBooks';
+import Home from './pages/Home.jsx';
+import About from './pages/About.jsx';
+import Login from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx';
+import LikedBooks from './pages/LikedBooks.jsx';
 import NavBar from './components/NavBar';
 
 import ProtectedRoute from './ProtectedRoute';
