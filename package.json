@@ -7,9 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:backend": "cd BackEnd  && nodemon -r dotenv/config index.js",
     "dev:frontend": "cd BackEnd  && npm run dev",
-
-
-    "build:frontend": "cd frontend && npm run build",
     "start:backend": "cd BackEnd  && node -r dotenv/config index.js",
     "start": "cd BackEnd && node -r dotenv/config index.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
