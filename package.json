@@ -4,9 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-  "dev:backend": "cd BackEnd && nodemon -r dotenv/config index.js",
-  "start:backend": "cd BackEnd && node -r dotenv/config index.js",
-  "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+  "dev:backend": "cd BackEnd && npm run dev",
+  "start:backend": "cd BackEnd && npm run start",
+  "build": "npm install --prefix BackEnd && npm install --prefix frontend && npm run build --prefix frontend",
   "start:frontend": "cd frontend && serve -s dist",
   "start": "npm run start:backend & npm run start:frontend"
 },
