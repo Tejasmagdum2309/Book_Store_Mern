@@ -16,7 +16,7 @@ const port = process.env.PORT || 8000;
 const __dirname = path.resolve();
 
 // Serve static files from the frontend dist directory
-const frontendPath = path.join(__dirname, '../FrontEnd/dist');
+const frontendPath = path.join(__dirname, '../frontend/dist');
 app.use(express.static(frontendPath));
 
 // Serve index.html for any unknown paths (for client-side routing)
