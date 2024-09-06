@@ -8,7 +8,7 @@
     "start:backend": "cd BackEnd && node -r dotenv/config index.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
     "start:frontend": "cd frontend && serve -s dist",
-    "start": "npm run start:backend & npm run start:frontend"
+    "start": "npm run start:backend "
   },
   "keywords": [],
   "author": "",
