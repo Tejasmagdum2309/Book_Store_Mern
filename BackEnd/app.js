@@ -11,7 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const app = express();
 app.use(cors({
-    origin: 'https://your-frontend-domain.com',  // Adjust to your frontend domain
+    origin: 'https://book-store-mern-1os0.onrender.com',   // Adjust to your frontend domain
     credentials: true,
   }));
 app.use(cookieParser());
