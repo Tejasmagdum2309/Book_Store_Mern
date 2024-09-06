@@ -5,8 +5,6 @@ import authRouter from './src/routes/auth.router.js'
 import cors from 'cors';
 import path from 'path'
 import cookieParser from "cookie-parser"
-
-import path from 'path';
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
