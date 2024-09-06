@@ -4,8 +4,8 @@
   "main": "BackEnd/index.js",
   "type": "module",
   "scripts": {
-    "start": "node BackEnd/index.js"
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+    "start": "node BackEnd/index.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
     
   },
   "keywords": [],
