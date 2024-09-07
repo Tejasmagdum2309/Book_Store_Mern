@@ -47,6 +47,14 @@ const AddBookModal = ({ isOpen, onClose, onBookAdded }) => {
       }); // Callback to refresh the list
       onClose(); // Close the modal
     } catch (err) {
+      if (err.response && err.response.data.message === 'jwt expired') {
+        // Handle JWT expiration
+        alert('Session expired. Please log in again.');
+        
+        // Clear the token and redirect to login page
+        localStorage.removeItem('accessToken');
+        navigate('/login');
+      } 
       setError('Failed to add book: ' + err.message);
     } finally {
       setLoading(false);

@@ -4,11 +4,9 @@
   "main": "BackEnd/index.js",
   "type": "module",
   "scripts": {
-    "dev:backend": "cd BackEnd && nodemon -r dotenv/config index.js",
-    "start:backend": "cd BackEnd && node -r dotenv/config index.js",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
-    "start:frontend": "cd frontend && serve -s dist",
-    "start": "npm run start:backend & npm run start:frontend"
+    "dev": "nodemon --experimental-specifier-resolution=node --loader dotenv/config BackEnd/index.js",
+    "start": "node BackEnd/index.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",

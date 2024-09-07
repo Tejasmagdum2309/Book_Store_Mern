@@ -33,6 +33,15 @@ const LikedBooks = () => {
       console.log(response);
       setMyBooks(response.data); // Assuming response.data is an array of book objects
     } catch (err) {
+      console.log("in error....");
+      console.log("Error Response:", err.response || err);      if (err.response && err.response.data.message === 'jwt expired') {
+        // Handle JWT expiration
+        alert('Session expired. Please log in again.');
+        
+        // Clear the token and redirect to login page
+        localStorage.removeItem('accessToken');
+        navigate('/login');
+      } 
       setError("Failed to fetch books: " + err.message);
     } finally {
       setLoading(false);
