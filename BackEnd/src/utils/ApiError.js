@@ -7,10 +7,10 @@ class ApiError extends Error {
     ){  
 
         console.log("Constructor parameters:", { statusCode, message, errors, stack });
-        // super(message)
-        super();
+        super(message);
+        // super();
         this.statusCode = statusCode
-        console.log(statusCode," ",this.statusCode);
+        // console.log(statusCode," ",this.statusCode);
         this.data = null
         this.message = message
         this.success = false
