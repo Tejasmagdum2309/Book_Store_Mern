@@ -4,9 +4,9 @@
   "main": "BackEnd/index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --experimental-specifier-resolution=node --loader dotenv/config BackEnd/index.js",
     "start": "node BackEnd/index.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    
   },
   "keywords": [],
   "author": "",
